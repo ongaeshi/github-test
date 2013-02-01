@@ -9,10 +9,13 @@
     %link(rel="stylesheet" href="/css/style.css"  type="text/css" media="all")
 
   %body
-    %header
-      %h1 <a href=".">Github Test</a>
+    %div(class='navbar navbar-inverse navbar-fixed-top')
+      .navbar-inner
+        .container
+          %a(data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar")
+            <a href="#" class="brand">Github Test</a>
 
-    #contents
+    .container
       != yield
 
     %hr

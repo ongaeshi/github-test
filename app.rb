@@ -12,7 +12,6 @@ require 'haml'
 require 'sass'
 
 $LOAD_PATH.unshift 'lib'
-require 'haml/filters/blockcode'
 require 'github-test/hello'
 
 set :haml, :format => :html5
@@ -22,8 +21,8 @@ helpers do
 end
 
 get '/' do
-  GithubTest::Hello.new.hello
-  # haml :index
+  # GithubTest::Hello.new.hello
+  haml :index
 end
 
 get '/*.css' do |path|
@@ -35,7 +34,3 @@ get '/*.html' do |path|
   haml path.to_sym
 end
 
-get '/*' do |path|
-  pass unless File.exist?(File.join(options.views, "#{path}.haml"))
-  haml path.to_sym
-end
